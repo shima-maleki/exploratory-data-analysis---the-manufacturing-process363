@@ -122,16 +122,30 @@ class Plotter(DataFrameInfo):
         plt.savefig('images\skewness_value.png')
         plt.show()
 
-    def skewness_histogram(self, DataFrame: pd.DataFrame, column_name: str):
-        histogram = sns.histplot(DataFrame[column_name],label="Skewness: %.2f"%(DataFrame[column_name].skew()) )
+    def skewness_histogram(self, column):
+        histogram = sns.histplot(self.data[column], label="Skewness: %.2f"%(self.data[column].skew()) )
         histogram.legend()
         return histogram
+    
+    def correlation_matrix(self):
+        corr = self.data.corr()
+        print(corr)
+
+        cmap = sns.color_palette("viridis", as_cmap=True) 
+
+        plt.figure(figsize=(14, 12))
+        sns.heatmap(corr, square=True, linewidths=.5, annot=True, cmap=cmap, fmt=".2f")
+        plt.yticks(rotation=0)
+        plt.title('Correlation Matrix of all Numerical Variables')
+        plt.savefig('images\correlation.png')
+        plt.show()
 
 
 pt = Plotter(df)
 pt.plot_missing_values() 
 pt.plot_stats()
 pt.plot_skewness()
+pt.correlation_matrix()
 
 class DataFrameTransform:
     def __init__(self, data):
@@ -147,28 +161,26 @@ class DataFrameTransform:
                     self.data[col].fillna(self.data[col].median(), inplace=True)
         return self.data
     
-    def box_cox_transform(self, column_name):
+    def box_cox_transform(self, column):
 
-        boxcox_column = stats.boxcox(self.data[column_name])
+        boxcox_column = stats.boxcox(self.data[column])
         boxcox_column = pd.Series(boxcox_column[0])
         return boxcox_column
 
-    def yeo_johnson_transform(self, column_name):
-        yjh_column = stats.yeojohnson(self.data[column_name])
+    def yeo_johnson_transform(self, column):
+        yjh_column = stats.yeojohnson(self.data[column])
         yjh_column = pd.Series(yjh_column[0])
         return yjh_column
 
-    def drop_outlier_rows(self, column_name, z_score_threshold):
-        mean = np.mean(self.data[column_name])
-        std = np.std(self.data[column_name]) 
-        z_scores = (self.data[column_name] - mean) / std
+    def remove_outlier(self, column, z_score_threshold):
+        mean = np.mean(self.data[column])
+        std = np.std(self.data[column]) 
+        z_scores = (self.data[column] - mean) / std
         abs_z_scores = pd.Series(abs(z_scores)) 
         mask = abs_z_scores < z_score_threshold
         DataFrame = self.data[mask]       
         return DataFrame
     
-
-
 dft = DataFrameTransform(df)
 dft.handle_null_values()
 
