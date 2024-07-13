@@ -1,0 +1,107 @@
+The datatype of each columns are as below: 
+UDI                          int64
+Product_ID                  object
+Type                        object
+Air_temperature_[K]        float64
+Process_temperature_[K]    float64
+Rotational_speed_[rpm]       int64
+Torque_[Nm]                float64
+Tool_wear_[min]            float64
+Machine_failure              int64
+TWF                          int64
+HDF                          int64
+PWF                          int64
+OSF                          int64
+RNF                          int64
+dtype: object
+
+----------------------------------------------------------------------
+
+The mean of the data is: 
+UDI                        5000.500000
+Air_temperature_[K]         300.008590
+Process_temperature_[K]     310.011580
+Rotational_speed_[rpm]     1538.776100
+Torque_[Nm]                  39.986910
+Tool_wear_[min]             108.219525
+Machine_failure               0.033900
+TWF                           0.004600
+HDF                           0.011500
+PWF                           0.009500
+OSF                           0.009800
+RNF                           0.001900
+dtype: float64 
+The median of the data is: 
+UDI                        5000.5
+Air_temperature_[K]         300.1
+Process_temperature_[K]     310.1
+Rotational_speed_[rpm]     1503.0
+Torque_[Nm]                  40.1
+Tool_wear_[min]             108.0
+Machine_failure               0.0
+TWF                           0.0
+HDF                           0.0
+PWF                           0.0
+OSF                           0.0
+RNF                           0.0
+dtype: float64 
+The stddev of the data is: 
+UDI                        2886.895680
+Air_temperature_[K]           1.999148
+Process_temperature_[K]       1.480138
+Rotational_speed_[rpm]      179.284096
+Torque_[Nm]                   9.968934
+Tool_wear_[min]              63.612534
+Machine_failure               0.180981
+TWF                           0.067671
+HDF                           0.106625
+PWF                           0.097009
+OSF                           0.098514
+RNF                           0.043550
+dtype: float64
+
+----------------------------------------------------------------------
+
+The number of unique values in the columns are as below: 
+{'UDI': 10000, 'Product_ID': 10000, 'Type': 3, 'Air_temperature_[K]': 93, 'Process_temperature_[K]': 82, 'Rotational_speed_[rpm]': 941, 'Torque_[Nm]': 577, 'Tool_wear_[min]': 246, 'Machine_failure': 2, 'TWF': 2, 'HDF': 2, 'PWF': 2, 'OSF': 2, 'RNF': 2}
+
+----------------------------------------------------------------------
+
+The shape of the data is: 
+(10000, 14)
+
+----------------------------------------------------------------------
+
+The Skewness of the data is: 
+UDI                         0.000000
+Air_temperature_[K]         0.118541
+Process_temperature_[K]     0.006529
+Rotational_speed_[rpm]      1.993171
+Torque_[Nm]                -0.009517
+Tool_wear_[min]             0.021183
+Machine_failure             5.151852
+TWF                        14.644462
+HDF                         9.164789
+PWF                        10.114516
+OSF                         9.953916
+RNF                        22.879570
+dtype: float64
+
+----------------------------------------------------------------------
+
+the percentage of the missing data as per each column are as below: 
+UDI                        0.00
+Product_ID                 0.00
+Type                       0.00
+Air_temperature_[K]        8.38
+Process_temperature_[K]    8.81
+Rotational_speed_[rpm]     0.00
+Torque_[Nm]                0.00
+Tool_wear_[min]            4.84
+Machine_failure            0.00
+TWF                        0.00
+HDF                        0.00
+PWF                        0.00
+OSF                        0.00
+RNF                        0.00
+dtype: float64
