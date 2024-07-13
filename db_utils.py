@@ -28,7 +28,6 @@ class RDSDatabaseConnector:
 def save_to_csv(dataframe, file_path):
     dataframe.to_csv(file_path, index=False)
 
-
  # Replace with your actual database credentials
 db_connector = RDSDatabaseConnector(config_data = load_yaml("credentials.yaml"))
 
