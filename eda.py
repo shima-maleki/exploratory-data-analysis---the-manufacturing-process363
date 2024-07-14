@@ -370,7 +370,7 @@ if __name__ == '__main__':
     plotter = Plotter(transformed_data, 'post_transformation')
     plotter.save_and_show_plots()
 
-    save_to_csv(transformed_data, 'data/clean_data.csv')  # Make sure the save_to_csv function exists and is imported
+    save_to_csv(transformed_data, 'data/clean_data.csv')  
 
 
 
