@@ -89,7 +89,7 @@ dtype: float64
 
 ----------------------------------------------------------------------
 
-the percentage of the missing data as per each column are as below: 
+The percentage of the missing data as per each column are as below: 
 UDI                        0.00
 Product_ID                 0.00
 Type                       0.00
